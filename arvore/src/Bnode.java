@@ -53,6 +53,17 @@ public class Bnode {
         }
 
         }
+    
+    public int size(){
+        int se=0, sd=0;
+        if(esq!=null){
+            se = esq.size();
+        }
+        if (dir!=null){
+            sd = dir.size();
+        }
+        return 1+se+sd;
+    }
     }
 
 

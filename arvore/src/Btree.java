@@ -24,6 +24,14 @@ public class Btree {
      if (raiz!=null){
         raiz.showH(1);
             }
-        
+         }
+
+    public int size(){
+        if(raiz!=null){
+            raiz.size();
+        }
+        else{
+            return 0;
+        }
     }
 }
