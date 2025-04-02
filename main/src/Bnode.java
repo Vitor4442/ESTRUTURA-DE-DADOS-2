@@ -41,18 +41,25 @@ public class Bnode {
     //metodo para buscar o livro
     public void buscar(String Isbn_buscar) {
         
-        if (p.GetISBN().equals(Isbn_buscar)) {
-            System.out.println("ID: " + p.GetISBN() + " Livro: " + p.GetTitulo() + " Autor: " + p.GetAutor());
-            System.out.println();
-            return;
+        if (p.GetISBN().compareTo(Isbn_buscar) < 0) {
+            if(dir!=null){
+                dir.buscar(Isbn_buscar);
+            }
+            else {
+                System.out.println("ISBN Não Encontrado");
         }
-       
-        if (esq != null) {
-            esq.buscar(Isbn_buscar);
-        } else if (dir != null) {
-            dir.buscar(Isbn_buscar);
-        } else {
-            System.out.println("ISBN com esse livro: " + Isbn_buscar + " não encontrado.");
+    }
+        else if(p.GetISBN().compareTo(Isbn_buscar) > 0){
+            if(esq!=null){
+                esq.buscar(Isbn_buscar);
+            }
+            else{
+                System.out.println("ISBN Não Encontrado");
+            }
+        }
+        
+        else{
+            System.out.println(p.GetISBN() + " " + p.GetTitulo() + " " + " " + p.GetAutor());
         }
     }
     
